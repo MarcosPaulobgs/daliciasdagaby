@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://deliciasdagaby.vercel.app"),
+  metadataBase: new URL("https://daliciasdagaby.vercel.app"),
   title: "Delícias da Gaby",
   description: "Bolos e doces artesanais",
   icons: {
@@ -13,6 +13,8 @@ export const metadata = {
   openGraph: {
     title: "Delícias da Gaby",
     description: "Bolos e doces artesanais em Santa Inês, BA. Peça pelo WhatsApp!",
+    url: "https://daliciasdagaby.vercel.app",
+    siteName: "Delícias da Gaby",
     locale: "pt_BR",
     type: "website",
     images: [
