@@ -16,14 +16,14 @@ export const CATEGORIAS = [
     nome: "Bolos & Bento Cakes",
     itens: [
       {
-        id: "bento-cake",
-        nome: "Bento Cake",
+        id: "brigadeiro-ninho-nutella",
+        nome: "Brigadeiro Ninho com Nutella",
         descricao:
-          "Mini bolo individual personalizado com frase ou desenho. Ideal para presentes e mesversários.",
+          "Brigadeiro cremoso de leite Ninho recheado com Nutella, finalizado com um toque de chocolate. Feito para derreter na boca.",
         preco: null,
         precoLabel: "Sob consulta",
         destaque: true,
-        imagem: "/img/destaques/bento-cake.webp",
+        imagem: "/img/destaques/brigadeiro-ninho-nutella.webp",
       },
       {
         id: "hamburguer-de-bolo",
