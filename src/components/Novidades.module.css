@@ -1,0 +1,144 @@
+/* ==========================================
+   SEÇÃO NOVIDADES - DELÍCIAS DA GABY
+   ========================================== */
+
+.section {
+  max-width: 1000px; /* Reduzido para não ocupar a tela inteira no PC */
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.head {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rose, #d81b60);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #2d2320;
+}
+
+.intro {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #66524d;
+}
+
+/* DESKTOP: DUAS FOTOS LADO A LADO COMPACTAS */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Proporção reduzida: fotos menos altas no PC */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(58, 33, 23, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.imgWrap:hover {
+  transform: translateY(-3px);
+}
+
+.img {
+  object-fit: cover;
+}
+
+.expandIcon {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.expandIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ctaWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: var(--rose, #d81b60);
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--blush-deep, #c2185b);
+}
+
+.ctaIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* MOBILE: FOTOS LADO A LADO EM 2 COLUNAS COMPACTAS */
+@media (max-width: 640px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular sem empilhar */
+    gap: 0.75rem;
+  }
+
+  .imgWrap {
+    aspect-ratio: 1 / 1; /* Fotos quadradas lado a lado */
+    border-radius: 12px;
+  }
+
+  .expandIcon {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .expandIcon svg {
+    width: 14px;
+    height: 14px;
+  }
+}

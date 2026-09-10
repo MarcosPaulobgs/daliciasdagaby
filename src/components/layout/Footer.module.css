@@ -1,0 +1,140 @@
+.footer {
+  background-color: #4c0519;
+  color: #fbcfe8;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-top: 2px solid #db2777;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoLink {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #fbcfe8;
+  max-width: 300px;
+}
+
+.colTitle {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.linkList,
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.link {
+  color: #fbcfe8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.infoIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: #db2777;
+  flex-shrink: 0;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #831843;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.socialBtn:hover {
+  background-color: #db2777;
+  transform: translateY(-2px);
+}
+
+.socialSvg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.bottomBar {
+  padding-top: 2rem;
+  border-top: 1px solid #831843;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #fbcfe8;
+}
+
+@media (max-width: 968px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Centraliza a logo e o parágrafo de descrição no celular */
+  .col:first-child {
+    align-items: center;
+    text-align: center;
+  }
+}

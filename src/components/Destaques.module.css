@@ -1,0 +1,234 @@
+/* ==========================================
+   COMPONENTE DESTAQUES - DELÍCIAS DA GABY
+   ========================================== */
+
+.section {
+  padding: 4.5rem 1.5rem;
+  background-color: #fdfbf7;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #d81b60;
+  background-color: #fce8ef;
+  border: 1px solid #f8bbd0;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+}
+
+.titulo {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #2d2320;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  color: #66524d;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* GRID DESKTOP (4 ITENS COM MAIS ESPAÇAMENTO E LARGURA) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+/* CARD INDIVIDUAL */
+.card {
+  background: #ffffff;
+  border: 1px solid #fce8ef;
+  border-radius: 18px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(216, 27, 96, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(216, 27, 96, 0.08);
+}
+
+/* MOLDURA DA IMAGEM E PLACEHOLDER (PROPORÇÃO 4/3 MAIOR) */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background-color: #fdf2f6;
+  cursor: pointer;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover .productImg {
+  transform: scale(1.04);
+}
+
+.destaqueBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #d81b60;
+  background: #ffffff;
+  border: 1px solid #f8bbd0;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* CONTEÚDO DO CARD */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2d2320;
+}
+
+.cardPrice {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #c2185b;
+  background-color: #fce8ef;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.cardDescription {
+  font-size: 0.925rem;
+  color: #66524d;
+  line-height: 1.5;
+}
+
+/* RODAPÉ DA SEÇÃO / BOTÃO VER CARDÁPIO */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.verCardapioBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d81b60;
+  color: #ffffff;
+  padding: 0.9rem 2.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(216, 27, 96, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+.verCardapioBtn:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(216, 27, 96, 0.35);
+}
+
+.verCardapioBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(216, 27, 96, 0.2);
+}
+
+/* AJUSTE INTERMEDIÁRIO PARA TABLETS */
+@media (max-width: 1024px) and (min-width: 641px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CARROSSEL EXCLUSIVO PARA MOBILE (LENTO E COM BARRA VISÍVEL) */
+@media (max-width: 640px) {
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1.25rem;
+    overscroll-behavior-x: contain;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    -webkit-overflow-scrolling: auto; /* Deixa o deslize firme/pesado no iOS */
+  }
+
+  .grid::after {
+    content: "";
+    padding-right: 0.25rem;
+  }
+
+  /* BARRA DE ROLAGEM VISÍVEL */
+  .grid::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .grid::-webkit-scrollbar-track {
+    background: #fdf2f6;
+    border-radius: 999px;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  .grid::-webkit-scrollbar-thumb {
+    background: #f8bbd0;
+    border-radius: 999px;
+  }
+
+  .card {
+    flex: 0 0 86%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always; /* Obriga a travar de 1 em 1 item */
+  }
+}

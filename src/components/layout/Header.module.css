@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(254, 242, 242, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(244, 114, 182, 0.18);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  /* Isola o header numa camada de composição própria, então o navegador
+     não precisa recalcular/repintar o blur junto com o resto da página
+     a cada frame de scroll (principal causa das travadinhas no celular). */
+  transform: translateZ(0);
+  will-change: background-color;
+}
+
+.headerScrolled {
+  box-shadow: 0 4px 20px rgba(131, 24, 67, 0.08);
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom-color: rgba(219, 39, 119, 0.15);
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.65rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand:hover {
+  transform: scale(1.02);
+}
+
+.logo {
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brandName {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #831843;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brandHighlight {
+  color: #db2777;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.navDesktop {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.navLink {
+  position: relative;
+  color: #831843;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #db2777;
+  border-radius: 2px;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink:hover {
+  color: #db2777;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.btnCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background-color: #db2777;
+  color: #ffffff;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(219, 39, 119, 0.28);
+  transition: all 0.25s ease;
+}
+
+.btnCta:hover {
+  background-color: #be185d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(219, 39, 119, 0.38);
+}
+
+.iconSvg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   BOTÃO HAMBURGER (3 linhas que viram um X quando aberto)
+========================================================= */
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: rgba(219, 39, 119, 0.1);
+}
+
+.menuButton span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: #831843;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.2s ease;
+}
+
+.menuButtonOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButtonOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButtonOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   MENU MOBILE E OVERLAY
+========================================================= */
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: none;
+  padding: 0;
+  cursor: default;
+  z-index: 40;
+}
+
+@media (max-width: 768px) {
+  /* Blur mais leve no celular: blur(12px) num elemento fixed é pesado pra
+     GPU de aparelhos mais fracos e é a maior causa de engasgo no scroll. */
+  .header {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .navDesktop {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 245, 247, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(251, 207, 232, 0.8);
+    box-shadow: 0 10px 25px rgba(131, 24, 67, 0.12);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 50;
+  }
+
+  .mobileMenuOpen {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobileNavLink {
+    color: #831843;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .mobileNavLink:hover,
+  .mobileNavLink:active {
+    background-color: rgba(219, 39, 119, 0.08);
+    color: #db2777;
+  }
+
+  .mobileCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: #db2777;
+    color: #ffffff;
+    padding: 0.85rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.98rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(219, 39, 119, 0.25);
+    margin-top: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobileCta:active {
+    background-color: #be185d;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandName {
+    font-size: 1.15rem;
+  }
+}

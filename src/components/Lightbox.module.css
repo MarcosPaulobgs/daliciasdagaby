@@ -1,0 +1,115 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200; /* acima do header (50), whatsapp float (40) e carrinho (100) */
+  background: rgba(24, 13, 9, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  animation: fadeIn 0.2s ease;
+}
+
+.closeBtn {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 201;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(251, 243, 236, 0.14);
+  border: 1px solid rgba(251, 243, 236, 0.35);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.closeBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.closeBtn:hover {
+  background: rgba(251, 243, 236, 0.25);
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Sem largura/altura fixas: a moldura encolhe até o tamanho real da
+     foto (limitado pelo viewport). Isso evita a borda/faixa transparente
+     que sobrava nas laterais quando a proporção da foto era diferente
+     do container fixo de antes. */
+  width: fit-content;
+  max-width: 92vw;
+  max-height: 90vh;
+  animation: zoomIn 0.2s ease;
+}
+
+.imgWrap {
+  display: flex;
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 92vw;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.caption {
+  margin-top: 1rem;
+  max-width: 92vw;
+  color: var(--cream);
+  text-align: center;
+}
+
+.caption h3 {
+  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+.caption p {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(251, 243, 236, 0.85);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .frame {
+    animation: none;
+  }
+}
