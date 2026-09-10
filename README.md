@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Delícias da Gaby
 
-## Getting Started
+Site institucional e cardápio digital da **Delícias da Gaby**, confeitaria artesanal em Santa Inês, BA ([@deliciaasdagaby](https://instagram.com/deliciaasdagaby)).
 
-First, run the development server:
+O site apresenta os produtos e envia o pedido pronto pro WhatsApp, sem necessidade de checkout ou backend próprio.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- [Next.js 14](https://nextjs.org) (App Router)
+- React 18
+- CSS Modules (sem framework de UI)
+
+## Funcionalidades
+
+- **Home**: Hero com vídeo de fundo, seção "Os queridinhos da casa" (carrossel) e Sobre.
+- **Cardápio (`/pedido`)**: lista de produtos por categoria com carrinho.
+- **Produto (`/produto/[id]`)**: página individual de cada item.
+- **Carrinho**: adiciona múltiplos produtos e monta uma única mensagem de pedido.
+- **Envio via WhatsApp**: todo pedido (avulso ou carrinho) é enviado como mensagem pronta pro WhatsApp da Gaby — sem gateway de pagamento.
+- **Open Graph**: preview configurado para WhatsApp, Facebook e Twitter/X (`public/opengraph-image.jpg`).
+
+## Estrutura de pastas
+
+```
+src/
+  app/            # rotas (App Router): home, /pedido, /produto/[id]
+  components/     # componentes de UI (Hero, Header, Footer, Carrinho, etc.)
+  context/        # CartContext — estado global do carrinho
+  hooks/          # useCart
+  data/           # produtos.js — catálogo, categorias e link de WhatsApp
+  lib/            # funções utilitárias
+public/
+  img/            # imagens dos produtos e do site
+  videos/         # vídeo de fundo do Hero
+  opengraph-image.jpg  # imagem de preview de link
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Rodando localmente
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Build de produção
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editando o catálogo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Produtos, categorias, preços e o número de WhatsApp ficam centralizados em `src/data/produtos.js`. Não é necessário mexer em nenhum componente para adicionar, remover ou editar um produto.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Hospedado na [Vercel](https://vercel.com). Push na branch principal já dispara o deploy automático — não requer variáveis de ambiente.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Domínio: `daliciasdagaby.vercel.app`
