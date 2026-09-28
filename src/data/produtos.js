@@ -1,5 +1,7 @@
-export const WHATSAPP_NUMERO = "5573981440403";
-export const INSTAGRAM_USUARIO = "deliciaasdagaby";
+// Número genérico (placeholder) — substitua pelo número real ao usar em produção.
+export const WHATSAPP_NUMERO = "5500000000000";
+// Usuário genérico (placeholder).
+export const INSTAGRAM_USUARIO = "seu_instagram";
 
 export function linkWhatsApp(mensagem) {
   const texto = encodeURIComponent(mensagem || "Olá, Gaby! Gostaria de fazer um pedido.");
@@ -7,7 +9,8 @@ export function linkWhatsApp(mensagem) {
 }
 
 export function linkInstagramDM() {
-  return `https://instagram.com/${INSTAGRAM_USUARIO}`;
+  // Versão de portfólio: sem link real para perfil.
+  return "#";
 }
 
 export const CATEGORIAS = [

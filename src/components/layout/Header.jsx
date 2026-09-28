@@ -223,6 +223,7 @@ export default function Header() {
   // =========================================================
 
   return (
+    <>
     <header
       className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""
         }`}
@@ -421,18 +422,21 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* =======================================================
-          OVERLAY DO MENU MOBILE
-      ======================================================== */}
-
-      {isMenuOpen && (
-        <button
-          type="button"
-          className={styles.mobileOverlay}
-          onClick={closeMenu}
-          aria-label="Fechar menu"
-        />
-      )}
     </header>
+
+    {/* =======================================================
+        OVERLAY DO MENU MOBILE (fora do <header> para o
+        position: fixed cobrir a tela inteira no Chrome)
+    ======================================================== */}
+
+    {isMenuOpen && (
+      <button
+        type="button"
+        className={styles.mobileOverlay}
+        onClick={closeMenu}
+        aria-label="Fechar menu"
+      />
+    )}
+    </>
   );
 }

@@ -1,6 +1,6 @@
 # Delícias da Gaby
 
-Site institucional e cardápio digital da **Delícias da Gaby**, confeitaria artesanal em Santa Inês, BA ([@deliciaasdagaby](https://instagram.com/deliciaasdagaby)).
+Site institucional e cardápio digital da **Delícias da Gaby**, confeitaria artesanal em Santa Inês, BA.
 
 O site apresenta os produtos e envia o pedido pronto pro WhatsApp, sem necessidade de checkout ou backend próprio.
 
@@ -16,7 +16,7 @@ O site apresenta os produtos e envia o pedido pronto pro WhatsApp, sem necessida
 - **Cardápio (`/pedido`)**: lista de produtos por categoria com carrinho.
 - **Produto (`/produto/[id]`)**: página individual de cada item.
 - **Carrinho**: adiciona múltiplos produtos e monta uma única mensagem de pedido.
-- **Envio via WhatsApp**: todo pedido (avulso ou carrinho) é enviado como mensagem pronta pro WhatsApp da Gaby — sem gateway de pagamento.
+- **Envio via WhatsApp**: todo pedido (avulso ou carrinho) é enviado como mensagem pronta pro WhatsApp da confeitaria — sem gateway de pagamento.
 - **Open Graph**: preview configurado para WhatsApp, Facebook e Twitter/X (`public/opengraph-image.jpg`).
 
 ## Estrutura de pastas
@@ -58,5 +58,3 @@ Produtos, categorias, preços e o número de WhatsApp ficam centralizados em `sr
 ## Deploy
 
 Hospedado na [Vercel](https://vercel.com). Push na branch principal já dispara o deploy automático — não requer variáveis de ambiente.
-
-Domínio: `daliciasdagaby.vercel.app`

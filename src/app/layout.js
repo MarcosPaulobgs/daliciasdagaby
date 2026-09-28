@@ -34,6 +34,11 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  colorScheme: "light",
+  themeColor: "#fbf3ec",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">

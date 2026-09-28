@@ -1,4 +1,8 @@
 :root {
+  /* Site desenhado só em tema claro. Sem isso, o Chrome (modo escuro
+     automático / "force dark") pode escurecer fundos e mudar as cores. */
+  color-scheme: light;
+
   --cocoa: #3a2117;
   --cocoa-soft: #6b4530;
   --blush: #eaa9b8;
