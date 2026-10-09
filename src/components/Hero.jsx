@@ -48,7 +48,7 @@ export default function Hero() {
           <svg className={styles.badgeIcon} fill="currentColor" viewBox="0 0 20 20">
             <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
           </svg>
-          <span>Confeitaria Artesanal em Santa Inês</span>
+          <span>Confeitaria Artesanal em Sua Cidade</span>
         </div>
 
         <h1 className={styles.title}>
@@ -81,7 +81,7 @@ export default function Hero() {
           </div>
           <div className={styles.statDivider} />
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>Santa Inês</span>
+            <span className={styles.statNumber}>Sua Cidade</span>
             <span className={styles.statLabel}>e Região</span>
           </div>
         </div>
